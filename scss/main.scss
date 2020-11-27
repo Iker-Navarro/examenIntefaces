@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+$dark-blue: #34495E;
+$light-blue: #3498DB;
+$red: #E74C3C;
+$shadow-grey: #8E8E8E;
+
+a, a:active, a:visited{
+    color: white;
+    text-decoration: none;
+}
+h1, h2{
+    font-weight: normal;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu, sans-serif;
+    background-color: $dark-blue;
+    color: black;
+
+    @media(min-width:960px){
+        background-image: url("../imagenes/Fondo1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    header{
+        text-align: center;
+        color: white;
+        margin-bottom: 10px;
+        h1{
+            margin: 0;
+            font-family: 'Sansita Swashed';
+            font-size: 2.6em;
+        }
+        div{
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid $light-blue;
+            width: 90vw;
+            margin: auto;
+            a{
+                padding: 10px;
+            }
+        }
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        @media(min-width: 550px){
+            grid-template-rows: repeat(3, auto);
+            gap: 30px;
+            grid-auto-flow: column;
+            grid-auto-columns: auto auto;
+        }
+
+        @media(min-width: 960px){
+            grid-auto-flow: row;
+            grid-template-columns: 400px 400px auto;
+        }
+
+        section{
+            width: 400px;
+            background-color: white;
+            margin: auto;
+            
+            h2{
+                margin: 0;
+                padding: 5px 15px;
+                font-size: 1.4em;
+                border-bottom: 2px solid $light-blue;
+            }
+
+            .resaltado{
+                background-color: $light-blue;
+                color: white;
+            }
+
+            h2:not(.resaltado):hover{
+                text-shadow:  80px 10px 1px $shadow-grey;
+            }
+
+            details{
+                column-count: 2;
+                @media(min-width:550px){
+                    column-count: initial;
+                }
+            }
+
+            .center{
+                text-align: center;
+                .inline-text{
+                    display: inline;
+                    @media(min-width:550px){
+                        display: block;
+                    }
+                }
+            }
+
+            img{
+                display: block;
+                margin: 2px auto;
+                width: 200px;
+            }
+            .elipse{
+                border-radius: 50%;
+            }
+            a:not(.info-link){
+                font-size: 0.9em;
+                background-color: $red;
+                display: block;
+            }
+            video{
+                width: 100%;
+            }
+        }
+        #alimentacion{
+            @media(min-width:960px){
+                grid-row: 3 / 4;
+                grid-column: 1 / -1;
+                width: 99%;
+            }
+        } 
+        #felis{
+            @media(min-width:960px){
+                grid-row: 1 / 3;
+                grid-column: 2 / 3;
+                align-self:flex-end;
+            }
+        }
+        #animation-section{
+            position: relative;
+            width: 99%;
+            overflow: hidden;
+
+            @media(min-width:960px){
+                grid-column: 1 / -1;
+            }
+
+            &:hover{
+                .gato{
+                    animation: gato 5s forwards;
+                }
+                .maullido{
+                    animation: maullido 5s forwards;
+                }
+            }
+
+            .maullido{
+                float: left;
+                visibility: hidden;
+            }
+            .gato{
+                float: right;
+                animation: gato-reverse 5s forwards;
+            }
+        }
+    }
+    footer{
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        height: 40px;
+        color: white;
+        span{
+            padding-left: 10px;
+        }
+        img{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transform-origin: center;
+            transition: transform 1s, box-shadow 1s;
+
+            &:hover{
+                transform: scale(1.5) translateX(-25%);
+                box-shadow: 0px 0px 50px $shadow-grey;
+
+                @media(min-width:960px){
+                    transform: scale(2) translateX(-25%);
+                    box-shadow: -3px -3px 3px $shadow-grey;
+                }
+            }
+        }
+    }
+}
+
+@keyframes gato{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes gato-reverse{
+    from{
+        transform: translateX(-100vw);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes maullido{
+    90%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: visible;
+    }
+}

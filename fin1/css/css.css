@@ -1,0 +1,28 @@
+:root{
+    --main-color-light:  lightgreen;
+    --main-color:  rgb(61, 151, 61);
+    --main-color-dark:  rgb(47, 100, 47);
+}
+.jumbotron {
+    background-image: url("../imagenes/paisaje.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+.navbar-custom {
+    background-color: var(--main-color) !important;
+}
+
+.page-link{
+    background-color: var(--main-color-light) !important;
+}
+.page-link.active{
+    background-color: var(--main-color) !important;
+}
+
+.page-link, .dropdown-item{
+    color: white !important;
+}
+
+.card-header{
+    background-color: var(--main-color-light)!important;
+}
